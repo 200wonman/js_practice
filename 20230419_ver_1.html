@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20230419</title>
+</head>
+<body>
+    숫자 A : <input id="numA" type="text"> <br>
+    숫자 B : <input id="numB" type="text"> <br>
+    <button id="btn">확인</button> <br>
+    최대공약수 : <span id="result"></span> <br>
+    최소공배수 : <span id="result2"></span>
+
+
+
+    <script>
+        const a = document.getElementById('numA');
+        const b = document.getElementById('numB');
+        const btn = document.getElementById('btn');
+        const result = document.getElementById('result');
+        const result2 = document.getElementById('result2');
+
+        let x = 0;
+        let y = 0;
+        let r = 0;
+        let r2 = 0;
+
+        const check = /^[0-9]+$/; 
+
+        // 약수 : 나누어 떨어진 나머지가  0 인 수 12/1 = 12...0, 12/2=6...0
+        // 입력값 체크 : 소수, 음수 ㄴㄴ
+
+        /* 
+           1. a 숫자의 수 만큼 i를 1증가시켜 나눈다.
+           2. a/i+1 = x...0 인경우
+           3. x값을 모은다.
+
+           4. b 숫자의 수 만큼 j를 증가시켜 나눈다.
+           5. b/j+1 = y...0 인경우
+           6. y값을 모은다.
+
+           7. x와 y값의 공통된 수 에서 '최대' 값을 찾는다.
+
+           + 8. 최소공배수 = 공약수 * 서로수
+        */ 
+
+      
+
+    
+
+        btn.addEventListener('click',function(){
+
+        
+            
+            if (a.value < 0 || a.value == '' ) {
+                alert("0이상의 숫자를 입력해 주세요.")
+                a.value = "";
+                a.focus();
+                return false;
+            }
+            if (!check.test(a.value) ) {
+                alert("정수만 입력해주세요.")
+                a.value = "";
+                a.focus();
+                return false;
+            }
+            
+            if (b.value < 0 || b.value == '' ) {
+                alert("0이상의 숫자를 입력해 주세요.")
+                b.value = "";
+                b.focus();
+                return false;
+            }
+
+            if (!check.test(b.value) ) {
+                alert("정수만 입력해주세요.")
+                b.value = "";
+                b.focus();
+                return false;
+            }
+           
+
+            // 숫자 A의 약수 구하기
+            for (let i = 0; i <= a.value; i++ ) {
+                if(a.value % i == 0) {
+                    console.log( "x의 나머지가 0입니다. : " + i);
+                    x = i;
+                }
+                for (let j = 0; j <= b.value; j++ ) {
+                    if(b.value % j == 0) {
+                        console.log( "y의 나머지가 0입니다. : " + j);
+                        y = j;
+
+                         // 최대공약수
+                        if (x == y) {
+                            console.log("hi" + y)
+                            r = y;
+                           
+                        }
+                    }   
+                }
+            }
+            
+            console.log("------최소공배수-----")
+            // x / 공약수 = 서로소1
+            // y / 공약수 = 서로소2
+            // 최소공배수 = 서로소1*서로소2*공약수
+            r2 = (x/r) * (y/r) * r;
+            console.log(r2);
+            console.log("------r-----")
+            console.log(r);
+            result.innerHTML = r;
+            result2.innerHTML = r2;
+
+            function getVal(m, n) {
+                let r = m % n;
+                return r === 0 ? r : getVal(n, r);
+            }
+
+
+
+
+
+
+
+
+
+
+        });
+
+    </script>
+    
+</body>
+</html>

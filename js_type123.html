@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>????</span>
+
+
+    <script>
+
+        /* 아무것도 정의 되지않음. */
+        let a ;
+        console.log(typeof a); // undefined 
+        console.log(a); // undefined
+
+
+        console.log("--------------------");
+        
+        
+        /* NaN */
+        let b = 255.0;
+        console.log(a + b); // undefined + 255.0 = NaN
+        
+        a = a+b;
+        console.log(a); // undefined + 255.0 = NaN
+        
+
+
+        console.log("--------------------");
+        
+
+
+        /*소수점 어디로?*/
+        a = 255;
+        console.log(typeof a); // number
+        console.log(typeof b); // number
+        console.log(a + b); // 510.0 (x) 510(O)
+        
+        let c = 200.0;
+        let d = 200.0;
+        
+        c = c+d // 200.0 + 200.0
+        console.log(c); // 400
+        console.log(typeof c); // number
+        
+                                                        // javascript에서 숫자 데이터 타입은 부동 소수점 형식을 사용합니다. 64비트 부동 소수점 형식에서 정수와 실수를 구분하지 않습니다.
+                                                        // 변수 a에 할당된 값 255와 변수 b에 할당된 값 255.0은 모두 64비트 입니다.
+                                                        // 그래서 a+b = 510.0 -> 부동 소수점 형식으로 계산 -> 510으로 표현됩니다.
+        
+        /* 소수점이 찍힐려면 */ 
+        console.log(c.toFixed(1)); // 400.0
+        
+
+        console.log("--------------------");
+
+
+        /* 부동소수점의 +/- 문제                                                                                        : https://joooing.tistory.com/entry/Javascript-%EC%86%8C%EC%88%98%EC%A0%90floating-point-%EA%B3%84%EC%82%B0-%EC%98%A4%EB%A5%98*/ 
+        c = -201;
+        d = 200;
+        
+        c = c+d; //  -201 + 200
+        console.log(c); //  -1
+        console.log(typeof c); // number
+
+        
+        /* 오잉1 */
+        c = -200.1;
+        d = 200.0;
+        
+        c = c+d; //  -200.1 + 200.0 
+        console.log(c); //  -0.09999999999999432 
+        console.log(typeof c); // number
+
+
+        /* 오잉2 */
+        c = 200.1;
+        d = 200.0;
+        
+        c = c+d; //  200.1 + 200.0 
+        console.log(c); //  400.1
+        console.log(typeof c); // number
+
+
+        /* 오잉3 */
+        c = 200.1;
+        d = 200.0;
+        
+        c = c-d; //  200.1 - 200.0 
+        console.log(c); // 0.09999999999999432 
+        console.log(typeof c); // number
+
+        /* 오잉4 */
+        c = 200.2;
+        d = 200.9;
+        
+        c = c+d; //  200.2 + 200.9 
+        console.log(c); // 401.1
+        console.log(typeof c); // number
+
+
+
+        /* 해결방법 */
+
+        // 1. toFixed() 
+        c = 200.1;
+        d = 200.0;
+        
+        c = (c-d).toFixed(1); //  200.1 - 200.0 
+        console.log(c); // 0.1
+        console.log(typeof c); // string <- 엥 스트링이 되어버림
+
+
+        
+        // 2. parseFloat() + toFixed
+        c = 200.1;
+        d = 200.0;
+        
+        c = parseFloat((c-d).toFixed(1));  //  200.1 - 200.0 
+        console.log(c); // 0.1
+        console.log(typeof c); // number
+
+
+
+        // 3.Math.round()                                                             ->  메서드는 입력값을 반올림한 가장 가까운 정수를 반환합니다. 예를 들어, Math.round(2.6) 은 3을 반환하며, Math.round(2.4)는 2를 반환합니다. 그리고 그밖에 Math.floor, Math.ceil, Math.trunc 사용할 수 도 있음.
+        c = 200.1;
+        d = 200.0;
+        
+        c =  Math.round(c-d);  //  200.1 - 200.0 
+        console.log(c); // 0 <- 가까운 수로 반올림/내림 해서 0.1 이 0이 되어버림;; 소수점엔 별루 
+        console.log(typeof c); // numner
+
+
+        console.log("--------------------");
+
+        /* 그 외  */
+        console.log(999999999999999);          // 999999999999999 : 999조 9999억 9999만 9999
+        console.log(9999999999999999);         // 1000000000000000 :  9,999조 9998억 9999만 9999이 아님
+        console.log(9999999999999999 + 1);     // 1000000000000000 
+        console.log(9999999999999999 + 11);    // 1000000000000012
+        console.log(99999999999999999);        // 100000000000000000 
+        console.log(999999999999999999);       // 1000000000000000000 
+        console.log(9999999999999999999);      // 10000000000000000000 
+        console.log(9999999999999999999 - 1);  // 10000000000000000000 
+        console.log(9999999999999999999 + 1);  // 10000000000000000000 
+
+
+      
+        add(3,1);
+            
+        function add (a,b){
+          r =  a+b;
+            console.log(r)
+            return r;
+        }
+        console.log("더하는 펑션 결과 :" + r)
+        
+    </script>
+
+
+</body>
+</html>
