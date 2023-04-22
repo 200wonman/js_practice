@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    // let add =  function add2(a,b) {
+    //     return a+b;
+    // }
+    
+    
+    // let r = add2(1,3);    
+    // console.log(r);
+    
+    // let r = add2(1,3);    
+    // console.log(r);
+   
+
+    let add =  function (a,b) {
+        return a+b;
+    }
+    
+    //// 2 
+
+    function hhh (what) {
+        let a =1;
+        let b = 3;
+        return what(a,b);
+    }
+
+    console.log("hi : " + hhh(add));
+    
+    (function run() {
+        console.log("hi : " );
+    }()/*()이게 함수 실행해줌*/);
+
+
+    // 가변 인자
+    let what = add(1,3,4);
+  
+   
+    function add (...p) {
+         let result = 0;
+         for (const iterator of p) {
+             console.log(iterator);
+             result += iterator;
+         }
+         return result;
+     }
+ 
+ 
+     console.log(what);
+
+   
+  
+    // 클로저 : 리턴안에 함수가 밖에서도 사용되는데 값이 계속 할당됨 <- 어따쓰지
+    function add(){
+        let a = 0;
+        return function (){
+            return a++;
+        }
+    }
+
+    a = add();
+    console.log(a())
+    console.log(a())
+    console.log(a())
+
+
+    // class, 조건문, 순환문
+
+
+
+    </script>
+    
+</body>
+</html>

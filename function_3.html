@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        
+
+        let add2 =  function (a,b) {
+            return a+b;
+        }
+
+        function hhh (what) {
+            let a =1;
+            let b = 3;
+            return what(a,b);
+        }
+
+        console.log("hi : " + hhh(add2)); 
+
+        // Q. 위 변수화 함수들이 어떤 작용을 하는지 쓰시오.
+        // A. add는 함수 표현식으로 선언됐다. 두개의 매개변수를 받아 두 수를 더한 값을 반환한다.
+        //    그다음 hhh함수가 정의되어있다.1개의 what 인자를 받는다. 그리고 a,b 변수에 1,3을 할당한 후 이를 반환값에 전달합니다.
+        //      console.log에서 hhh()함수에서 add함수를 호출하는데,
+        //      그럼 hhh(add)는 hhh 함수를 호출하면서 add 함수를 인수로 전달한 결과입니다.
+
+
+    
+    
+    </script>
+    
+</body>
+</html>
