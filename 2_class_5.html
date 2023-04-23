@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+       // Static properties and methods
+       // 얘도 아직 범용화 ㄴㄴ
+       class Article {
+            static publisher = 'Dream coding';
+            constructor(articleNumber) {
+                this.articleNumber = articleNumber;
+            }
+
+            static printPiblisher() {
+                console.log(Article.publisher);
+            }
+
+       }
+
+       const article1 = new Article(1);
+       const article2 = new Article(2);
+       
+       console.log(article1.publisher); // undifined
+       console.log(article2.publisher); // undifined
+       // 우리가 스태틱을 사용하지않았다면, 해당 오브젝트의 값을 출력할 수 있었을것이다.
+       // 스태틱은 오브젝트마다 할당되어지는 것이 아니다.
+       // 클래스 자체에 할당되어진다.
+
+       console.log(Article.publisher); // Dream coding
+       console.log(Article.publisher); // Dream coding
+       // 그래서 static함수를호출 할 때 class에서 가져와애한다.
+ 
+
+
+    </script>
+    
+</body>
+</html>

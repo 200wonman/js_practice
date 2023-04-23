@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // Object
+        // literals and properties
+
+        // 이렇게 쓰면 데이터를 너무 번거롭게 관리해야함.
+        const name = 'juye';
+        const age = 30;
+        function print(name, age) {
+            console.log(name);
+            console.log(age);
+        }
+        print(name,age);
+        
+        
+        // 오브젝트로 만들면, name 과 age를 function에서매개 변수로 안받아도된다.
+        const juye = { name : 'juye', age : 30 };
+        function print2(person) {
+            console.log(person.name);
+            console.log(person.age);
+        }
+        print2(juye);
+         
+
+        // 오브젝트를 만드는 방법.
+        const obj = {}; // object literal syntax <- js는 이게 가능함.
+        const obj2 = new Object();  // object constructor syntax <- class로 만드는거
+
+        // 중간에 프로퍼티추가도 가능함(하지만 비추)
+        juye.hasJob = 'true';
+        console.log( juye.hasJob); // true
+        
+        // 프로퍼티 추가된거 삭제도 가능함 
+        delete juye.hasJob
+        console.log( juye.hasJob); // undifined
+
+
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>
