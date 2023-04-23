@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+       // Getter and setters
+        /*
+            call stack 초과 오류에서 해결방법.
+           
+       
+       */
+       class User {
+        constructor(firstName, lastName, age){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+        }
+
+        // getter와 setter에 쓰이는 변수들이 이름이 같아서 호출되는 문제니
+        // 살짝 바꿔주면 된다.
+
+        get age() {
+            return this._age;
+        }
+
+        set age(value) {
+            this._age = value<0 ? 0:value;
+        }
+
+       }
+
+       const user1 = new User ('juye','kim',-1);
+       console.log(user1.age);
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

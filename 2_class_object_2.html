@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            [use strict]
+            Object-oriented programming
+            class : template
+            object : instance of a class
+            JavaScript classes
+            - introduced in ES6
+            - syntactical sugar over prototype-based inheritance
+              (기존에 존재하던 문법에 좀 더 편한 기능을 추가한걸 syntactical sugar라고 한다. ) 
+        */
+
+        // 1. Class declarations
+        class Person {
+            // constructor
+            constructor(name, age) {
+                //fields
+                this.name = name;
+                this.age = age;
+            }
+
+            //methods
+            speak(){
+                console.log(`${this.name} :hello!`);
+            }
+        }
+
+
+
+        const juye = new Person('juye',30); // 매개변수를 전달
+        console.log('age : '+ juye.age);
+        console.log('name : '+ juye.name);
+        console.log(juye)
+        juye.speak();
+
+
+
+
+    </script>
+    
+</body>
+</html>

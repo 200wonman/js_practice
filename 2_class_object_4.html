@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+       // Public & Private Fields
+       // 너무 최신 기능이라아직 범용화안됨. 일단쓰루~
+        
+        class Experiment {
+            publicField = 2;
+            #privateField = 0; //#붙이면 private Fields됨.
+        }
+
+        const experiment = new Experiment();
+        console.log(experiment.publicField); // 2
+        console.log(experiment.privateField); // undefined
+
+
+
+    </script>
+    
+</body>
+</html>

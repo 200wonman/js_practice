@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+       // Getter and setters
+        /*
+            이렇게하면 call stack 초과 오류가뜬다.
+            2_class_object_3.html:35 Uncaught RangeError: Maximum call stack size exceeded
+            at set age [as age] (2_class_object_3.html:35:22)
+            at set age [as age] (2_class_object_3.html:35:22)
+            at set age [as age] (2_class_object_3.html:35:22)
+            at set age [as age] (2_class_object_3.html:35:22)
+            at set age [as age] (2_class_object_3.html:35:22)
+            at set age [as age] (2_class_object_3.html:35:22)
+            at set age [as age] (2_class_object_3.html:35:22)
+            at set age [as age] (2_class_object_3.html:35:22)
+            at set age [as age] (2_class_object_3.html:35:22)
+            at set age [as age] (2_class_object_3.html:35:22)
+       
+       */
+       class User {
+        constructor(firstName, lastName, age){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+        }
+
+
+        // call stack 초과 요류 원인운 getter / setter에 있다.
+
+        // 우리가 get age()를 정의하는 순간. 
+        // constructor의 this.age는 메모리의 데이터를 바로 읽어오는것이아니라
+        // getter의  get ager()를 호출하게된다.
+        get age() {
+            return this.age;
+        }
+
+        // 우리가 set age()를 정의하는순간.
+        // constructor의 = age;는 값을 할당할 때 바로 메모리의값을 할당하는것이 아니라
+        // setter의 set age()를 호출하게된다.
+        set age(value) {
+            this.age = value<0 ? 0:value;
+        }
+
+        // 그렇게되면
+        // set age(value) 의  value 매개변수가 전달되면,
+        // 매개변수(value) 값이 this.age에 할당되면서,
+        // = value;가 메모리에 값을 업데이트 하는것이 아니다.
+        // setter를 다시 호출하게 되는것이다.
+        // 헤결방법은 3-1 파일에있다.
+
+       }
+
+       const user1 = new User ('juye','kim',-1);
+       console.log(user1.age);
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

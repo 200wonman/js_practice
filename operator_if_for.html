@@ -11,22 +11,6 @@
     <script>
 
 
-
-        // 클로저 : 리턴안에 함수가 밖에서도 사용되는데 값이 계속 할당됨 <- 어따쓰지
-        function add(){
-            let a = 0;
-            return function (){
-                return a++;
-            }
-        }
-
-        a = add();
-        console.log(a()); 
-        console.log(a());
-        console.log(a());
-
-        
-    
     </script>
     
 </body>
