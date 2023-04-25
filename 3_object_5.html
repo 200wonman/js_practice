@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // Object
+
+
+
+
+        // fun clloning
+       
+        // 오브젝트 값을 복사 후 복사한 오브젝트의 값을 변경하면, 처음 복사됐던 원본도 값바뀜
+        const juye = { name: 'juye', age : '30' }
+
+        const kimjuye = juye; // 할당됐다고말함
+
+        kimjuye.name = 'who'; // .찍는순간 원래 주소로감
+
+        console.log(juye); // name의 value가 바뀜
+
+
+
+
+        
+        console.log('----------------------------------------')
+
+
+
+
+        // 옛날에 오브젝트 복사했던 방법
+        const user1 = {}; // 빈 오브젝트 생성
+        for (key in juye) {
+            user1[key] = juye[key];
+        }
+        console.log(user1);
+
+
+
+
+        console.log('----------------------------------------')
+
+
+
+        
+        // Object.assign사용방법
+        // Object.assign(dest, [obj]1, obj2, obj3 ...])
+
+        const user2 = {};
+        Object.assign(user2, user1);
+        console.log(user2);
+
+        
+        
+        // or
+
+        const user3 =  Object.assign({}, user1);
+        console.log(user2);
+        
+
+
+
+
+        console.log('----------------------------------------')
+
+
+
+
+        // Object.assign 으로 obj를 추가해보자 (겹치기도함)
+        const bob = {color : 'white'};
+        const kim = {color : 'black', size: 'big'};
+        const kimbob = Object.assign({}, bob, kim);
+        console.log(kimbob.color); // white가 사라지고, black덮어짐
+        console.log(kimbob.size); // 오브젝트 속성이 추가됨.
+
+
+
+
+    </script>
+    
+</body>
+</html>

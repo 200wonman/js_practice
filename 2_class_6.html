@@ -14,44 +14,76 @@
 
      class Shape {
         
-        constructor(width, height, color) {
+         constructor(width, height, color) {
             this.width = width;
             this.height = height;
             this.color = color;
-        }
+         }
 
-        draw() {
-            console.log(`drawing ${this.color} color of`);
-        }
-        getArea() {
-            return this.width * this.height;
-        }
+        // }
+
+        // draw() {
+        //     console.log(`drawing ${this.color} color of`);
+        // }
+        // getArea() {
+        //     return this.width * this.height;
+        // }
      }
 
-     // Shape상속를 상속받은 객체
-     class Rectangle extends Shape{}
-     class Triangle extends Shape{
+     const a = new Shape(30,30,'green');
+     console.log(a);
 
-        // 부모에게 상속받은 기능을 자식이 재정의함.
-        draw() {
-            super.draw(); // 하지만 부모의 기능도 super를 이용해서 사용 가능하다.
-            console.log('삼각형');
-        }
-        getArea() {
-            return (this.width * this.height) / 2 ;
-        }
-     }
+     console.log('----------------------------------------')
+    //  // Shape상속를 상속받은 객체
+    //  class Rectangle extends Shape{}
+    //  class Triangle extends Shape{
 
-     // Rectangle 객체에 값을 넣으면 상속받은 Shape 클래스의 틀을 사용가능.
-     const rectangle = new Rectangle(20, 20, 'blue');
-     rectangle.draw(); // drawing blue color of -> 함수도 사용가능
-     console.log(rectangle.getArea()); // 400
+    //     // 부모에게 상속받은 기능을 자식이 재정의함.
+    //     draw() {
+    //         super.draw(); // 하지만 부모의 기능도 super를 이용해서 사용 가능하다.
+    //         console.log('삼각형');
+    //     }
+    //     getArea() {
+    //         return (this.width * this.height) / 2 ;
+    //     }
+    //  }
+
+    //  console.log('----------------------------------------')
+
+    //  // Rectangle 객체에 값을 넣으면 상속받은 Shape 클래스의 틀을 사용가능.
+    //  const rectangle = new Rectangle(20, 20, 'blue');
+    //  rectangle.draw(); // drawing blue color of -> 함수도 사용가능
+    //  console.log(rectangle.getArea()); // 400
 
 
-      // Triangle class에서 상속받은 기능을 재정의하여 사용.
-     const triangle = new Triangle(20, 20, 'green');
-     triangle.draw();
-     console.log(triangle.getArea());
+    //  console.log('----------------------------------------')
+     
+     
+    //  // Triangle class에서 상속받은 기능을 재정의하여 사용.
+    //  const triangle = new Triangle(20, 20, 'green');
+    //  triangle.draw();
+    //  console.log(triangle.getArea());
+     
+     
+     
+    //  console.log('----------------------------------------')
+
+
+     
+    //  // Class checking : instanceOf
+    //  // TRUE / FALSE 로 
+    //  // 왼쪽에있는 rectangle 오브젝트가 
+    //  // 오른쪽의 Rectangle class의 인스턴스인지 아닌지 말해줌
+
+    //  console.log(rectangle instanceof Rectangle); 
+    //  console.log(triangle instanceof Rectangle);
+    //  console.log(triangle instanceof Triangle);
+    //  console.log(triangle instanceof Shape);
+    //  console.log(triangle instanceof Object); 
+    //  // triangle은  Object의 인스턴스인가? T
+    //  // 왜?
+    //  // 자바스크립트에서 만든 모든 오브젝트는 Object에서 상속받은것이기때문에
+    //  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
  
 
 

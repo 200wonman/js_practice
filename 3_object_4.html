@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // Object
+        function MakePerson (name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        const juye = new MakePerson('juye',30);
+        
+
+        // for..in -> for ( key in obj ) {}
+        for (key in juye) { 
+            console.log(key); // 콘솔결과 name / age가 한줄씩 뜸
+        }
+
+
+        console.log('----------------------------------------')
+
+        
+
+        // for..of -> ( value of iterable)
+        const array = [1,2,4,5];
+
+        // 일반적 방법
+        for(let i=0; i<array.length; i++){
+            console.log(array[i]); 
+        }
+
+        // for..of 방법
+        for (value of array) {
+            console.log(value);
+        }
+
+
+    </script>
+    
+</body>
+</html>
