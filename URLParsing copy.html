@@ -62,15 +62,65 @@
             분과 초 정보를 추출합니다. 마지막으로, 분을 초로 변환하고 초를 더하여 총 시간을 계산합니다.
             이와 같이 JavaScript를 사용하여 URL 파싱을 수행할 수 있으며, 이를 통해 시간 정보와 같은 다양한 정보를 추출할 수 있습니다.
         */
+        
 
-        const url2 = new URL("https://www.youtube.com/watch?v=mFawNZz_Uu0&t=213s");
-        const searchParams = new URLSearchParams(url.search);
+        // const url3 = new URL("https://www.youtube.com/watch?v=mFawNZz_Uu0&t=3m3s");
+        const url3 = new URL("https://www.youtube.com/watch?v=mFawNZz_Uu0&t=183s");
+        const searchParams = new URLSearchParams(url3.search);
         const time = searchParams.get('t'); // "213s"
 
-        const [seconds = 0, minutes = 0] = time.split('m').join('').split('s');
+        let totalSeconds = 0;
 
-        const totalSeconds = parseInt(seconds, 10) + parseInt(minutes, 10) * 60;
+        if (time !== null) {
+            const matches = time.match(/(\d+)s|(\d+)m(\d+)s/); // 정규식을 사용하여 "s" 또는 "m"과 "s"가 있는 경우 숫자를 추출
+            if (matches[1]) { // "s"만 있는 경우
+                totalSeconds = parseInt(matches[1], 10);
+            } else { // "m"과 "s"가 있는 경우
+                const minutes = parseInt(matches[2], 10);
+                const seconds = parseInt(matches[3], 10);
+                totalSeconds = minutes * 60 + seconds;
+            }
+        }
+
         console.log(totalSeconds); // 213
+
+
+        // es6에 맞게 객체 class와 object를 써보자
+        class YoutubeUrl {
+            constructor(urlString) {
+                this.url = new URL(urlString);
+            }
+
+            getTotalSeconds() {
+                const searchParams = this.url.searchParams;
+                const time = searchParams.get('t');
+                let totalSeconds = 0;
+
+                if (time !== null) {
+                const matches = time.match(/(\d+)s|(\d+)m(\d+)s/);
+                if (matches[1]) {
+                    totalSeconds = parseInt(matches[1], 10);
+                } else {
+                    const minutes = parseInt(matches[2], 10);
+                    const seconds = parseInt(matches[3], 10);
+                    totalSeconds = minutes * 60 + seconds;
+                }
+                }
+
+                return totalSeconds;
+            }
+        }
+
+        const url1 = new YoutubeUrl("https://www.youtube.com/watch?v=mFawNZz_Uu0&t=213s");
+        const url2 = new YoutubeUrl("https://www.youtube.com/watch?v=mFawNZz_Uu0&t=3m3s");
+
+        console.log(url1.getTotalSeconds()); // 213
+        console.log(url2.getTotalSeconds()); // 183
+
+
+
+//        https://joalog.tistory.com/112
+
 
 
     </script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <div id="top"> 1. 현재 페이지 내 위치 </div>
+    <a href="#bottom">bottom</a>
+    <div style="height: 2200px;"></div>   
+    <div id="bottom"> 1. 현재 페이지 내 위치2 </div>
+    <a href="#top">top</a>
+   
+
+
+    <script>
+
+        var url = new URL("http://testurl.co.kr?param1=1&param2=3#top")
+        console.log(url.hash) 	//결과 : top
+
+        url.hash="bottom"
+        console.log(url.hash) 	//결과 : bottom
+
+
+   
+
+        // hash값은 페이지 내에서 위치를 이동하는 경우에 사용할 수 있는 값이다. 
+        // 위의 코드를 살펴보자. div 아래에 많은 내용이 담겨있어서 스크롤이 생겼다. 
+        // 이 때, 하단에 top버튼이 있어서, 이것을 클릭하면 id가 top인 곳으로 이동하게 된다. 
+        // 이때 사용할 수 있는 것이 hash이다.  
+
+        // 위와같은 방법으로 이동을 하고나면, url뒤에 "#top"이 생긴다. 
+        // url.hash를 통해서 값을 받아올 수도 있고, 값을 설정할 수도 있다.
+
+    </script>
+    
+</body>
+</html>
